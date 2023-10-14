@@ -9,10 +9,6 @@ describe("CRUD Operations", () => {
       description: "description",
       price: 1,
     });
-
-    console.log('response: ', response)
-
-
     expect(response.status).toBe(404);
     expect(response.body).toHaveProperty('id');
   })
