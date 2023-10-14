@@ -4,13 +4,10 @@ import { IBook } from "../models/Book";
 
 export const ValidateJoi = (schema: ObjectSchema) => {
   return async (req: Request, res: Response, next: NextFunction) => {
-    console.log("body:" + req.body.title);
     try {
       await schema.validateAsync(req.body);
       next();
     } catch (error) {
-      console.error(error);
-      console.log("body:" + req.body.title);
       return res.status(422).json({ error });
     }
   };

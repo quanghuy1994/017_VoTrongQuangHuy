@@ -5,17 +5,17 @@ import { Schemas, ValidateJoi } from "../middleware/Joi";
 const bookRouter = express.Router();
 
 bookRouter.post(
-  "/create",
+  "/books",
   ValidateJoi(Schemas.book.create),
   controller.createBook
 );
-bookRouter.get("/get/:bookId", controller.readBook);
-bookRouter.get("/get/", controller.readAll);
+bookRouter.get("/books/:bookId", controller.readBook);
+bookRouter.get("/books/", controller.readAll);
 bookRouter.patch(
-  "/update/:bookId",
+  "/books/:bookId",
   ValidateJoi(Schemas.book.update),
   controller.updateBook
 );
-bookRouter.delete("/delete/:bookId", controller.deleteBook);
+bookRouter.delete("/books/:bookId", controller.deleteBook);
 
 export = bookRouter;
